@@ -170,22 +170,24 @@ function checkEx6() {
 }
 
 // EX 7: Dialog 6 personaje — sinteză MASIVĂ Atelier complet
+// 🚨 FĂRĂ PARANTEZE cu prepoziții — cursantul gândește singur ce prep lipsește!
+// 🚨 Forme contrase: accept atât forma scurtă (beim/zum/zur/vom) cât și forma lungă (bei dem / zu dem / zu der / von dem)
 const ex7Data = [
-    { id: 'a', sentence: 'Mihai: Ich spreche ____ meinen Kunden. (mit + Dat)', translation: 'Vorbesc cu clienții mei.', correct: 'mit', accept: ['mit'] },
-    { id: 'b', sentence: 'Mihai: Annette hilft mir ____ Service. (bei + dem = beim)', translation: 'Annette mă ajută la service.', correct: 'beim', accept: ['beim'] },
-    { id: 'c', sentence: 'Andreea: Ich träume ____ einer Reise nach Italien. (von + Dat)', translation: 'Visez la o călătorie în Italia.', correct: 'von', accept: ['von'] },
-    { id: 'd', sentence: 'Andreea: Aber jetzt denke ich ____ meine Prüfung. (an + Akk!)', translation: 'Dar acum mă gândesc la examenul meu.', correct: 'an', accept: ['an'] },
-    { id: 'e', sentence: 'Florian: Ich warte ____ meinen Patient. (auf + Akk!)', translation: 'Aștept pacientul meu.', correct: 'auf', accept: ['auf'] },
-    { id: 'f', sentence: 'Carolina: Ich treffe mich ____ meiner Freundin. (mit + Dat)', translation: 'Mă întâlnesc cu prietena mea.', correct: 'mit', accept: ['mit'] },
-    { id: 'g', sentence: 'Acar: Ich arbeite ____ einer großen Firma. (bei + Dat)', translation: 'Lucrez la o firmă mare.', correct: 'bei', accept: ['bei'] },
-    { id: 'h', sentence: 'Acar: Ich erinnere mich ____ meine Anfänge. (an + Akk!)', translation: 'Îmi amintesc de începuturile mele.', correct: 'an', accept: ['an'] },
-    { id: 'i', sentence: 'Annette: Heute gratuliere ich Andreea ____ Abschluss. (zu + dem = zum)', translation: 'Azi o felicit pe Andreea pentru absolvire.', correct: 'zum', accept: ['zum'] },
-    { id: 'j', sentence: 'Annette: Und ich lade alle ____ Feier ein. (zu + der = zur)', translation: 'Și îi invit pe toți la sărbătoare.', correct: 'zur', accept: ['zur'] }
+    { id: 'a', sentence: 'Mihai: Ich spreche ____ meinen Kunden.', translation: 'Vorbesc cu clienții mei.', correct: 'mit', accept: ['mit'] },
+    { id: 'b', sentence: 'Mihai: Annette hilft mir ____ Service.', translation: 'Annette mă ajută la service.', correct: 'beim (sau bei dem)', accept: ['beim', 'bei dem'] },
+    { id: 'c', sentence: 'Andreea: Ich träume ____ einer Reise nach Italien.', translation: 'Visez la o călătorie în Italia.', correct: 'von', accept: ['von'] },
+    { id: 'd', sentence: 'Andreea: Aber jetzt denke ich ____ meine Prüfung.', translation: 'Dar acum mă gândesc la examenul meu.', correct: 'an', accept: ['an'] },
+    { id: 'e', sentence: 'Florian: Ich warte ____ meinen Patienten.', translation: 'Aștept pacientul meu.', correct: 'auf', accept: ['auf'] },
+    { id: 'f', sentence: 'Carolina: Ich treffe mich ____ meiner Freundin.', translation: 'Mă întâlnesc cu prietena mea.', correct: 'mit', accept: ['mit'] },
+    { id: 'g', sentence: 'Acar: Ich arbeite ____ einer großen Firma.', translation: 'Lucrez la o firmă mare.', correct: 'bei', accept: ['bei'] },
+    { id: 'h', sentence: 'Acar: Ich erinnere mich ____ meine Anfänge.', translation: 'Îmi amintesc de începuturile mele.', correct: 'an', accept: ['an'] },
+    { id: 'i', sentence: 'Annette: Heute gratuliere ich Andreea ____ Abschluss.', translation: 'Azi o felicit pe Andreea pentru absolvire.', correct: 'zum (sau zu dem)', accept: ['zum', 'zu dem'] },
+    { id: 'j', sentence: 'Annette: Und ich lade alle ____ Feier ein.', translation: 'Și îi invit pe toți la sărbătoare.', correct: 'zur (sau zu der)', accept: ['zur', 'zu der'] }
 ];
 
 function buildEx7() {
     const c = document.getElementById('ex7-container'); if (!c) return;
-    let h = '<div class="exercise-instruction"><strong>🎬 Sinteză masivă — 6 personaje, toate prepozițiile din lecție.</strong><br>Testează: mit/bei/von/zu + Dativ ȘI capcanele auf/an + Akk!<br><em>💡 La itemii cu formă contrasă (beim/zum/zur) scrie forma scurtă.</em></div>';
+    let h = '<div class="exercise-instruction"><strong>🎬 Sinteză masivă — 6 personaje, toate prepozițiile din lecție.</strong><br>Testează: mit/bei/von/zu + Dativ ȘI capcanele auf/an + Akk!<br><em>💡 Gândește singur ce prepoziție lipsește. La formele contrase (beim/zum/zur) ambele variante sunt valide: <strong>beim</strong> SAU <strong>bei dem</strong>, <strong>zum</strong> SAU <strong>zu dem</strong>, <strong>zur</strong> SAU <strong>zu der</strong>.</em></div>';
     ex7Data.forEach((it, i) => { h += `<div class="exercise-item"><span class="exercise-number">${i + 1}</span><div class="input-group"><label>${it.sentence}</label><small class="translation-hint">💬 ${it.translation}</small><input type="text" id="ex7-${it.id}" placeholder="completează..."></div><div class="feedback" id="ex7-f${it.id}"></div></div>`; });
     c.innerHTML = h;
 }
