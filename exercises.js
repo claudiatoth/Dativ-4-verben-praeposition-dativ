@@ -13,6 +13,23 @@ function normalizeAnswer(str) {
         .replace(/\s+/g, ' ').replace(/[.!?;:]/g, '');
 }
 
+// 🆕 22 mai 2026 — acceptă DOUĂ forme la verificare:
+//  1. Fragmentul lipsă: ex. "auf den"
+//  2. Propoziția întreagă cu răspunsul inclus: ex. "Carolina freut sich auf den Urlaub."
+// Cursantul scrie cum îi vine natural. Hint-urile din paranteze sunt ignorate la comparație.
+function answerMatches(item, userInput) {
+    const u = normalizeAnswer(userInput);
+    if (!u) return false;
+    // Test 1: doar fragmentul scurt
+    if (item.accept.some(a => normalizeAnswer(a) === u)) return true;
+    // Test 2: propoziția întreagă (curăță hint-urile din paranteze)
+    const sentenceClean = item.sentence.replace(/\s*\([^)]*\)\s*/g, ' ');
+    return item.accept.some(a => {
+        const full = sentenceClean.replace(/____+/g, a);
+        return normalizeAnswer(full) === u;
+    });
+}
+
 // EX 1: mit + Dativ (parteneri / instrumente)
 const ex1Data = [
     { id: 'a', sentence: 'Andreea spricht ____ ihrer Mutter.', translation: 'Andreea vorbește cu mama ei.', correct: 'mit', accept: ['mit'] },
@@ -35,7 +52,7 @@ function buildEx1() {
 }
 function checkEx1() {
     let correct = 0; const total = ex1Data.length;
-    ex1Data.forEach(it => { const inp = document.getElementById(`ex1-${it.id}`); const fb = document.getElementById(`ex1-f${it.id}`); const u = normalizeAnswer(inp.value); const ok = it.accept.some(a => normalizeAnswer(a) === u); fb.className = ok ? 'feedback correct' : 'feedback incorrect'; fb.textContent = `Corect: ${it.correct}`; if (ok) correct++; });
+    ex1Data.forEach(it => { const inp = document.getElementById(`ex1-${it.id}`); const fb = document.getElementById(`ex1-f${it.id}`); const ok = answerMatches(it, inp.value); fb.className = ok ? 'feedback correct' : 'feedback incorrect'; fb.textContent = `Corect: ${it.correct}`; if (ok) correct++; });
     return { correct, total };
 }
 
@@ -61,7 +78,7 @@ function buildEx2() {
 }
 function checkEx2() {
     let correct = 0; const total = ex2Data.length;
-    ex2Data.forEach(it => { const inp = document.getElementById(`ex2-${it.id}`); const fb = document.getElementById(`ex2-f${it.id}`); const u = normalizeAnswer(inp.value); const ok = it.accept.some(a => normalizeAnswer(a) === u); fb.className = ok ? 'feedback correct' : 'feedback incorrect'; fb.textContent = `Corect: ${it.correct}`; if (ok) correct++; });
+    ex2Data.forEach(it => { const inp = document.getElementById(`ex2-${it.id}`); const fb = document.getElementById(`ex2-f${it.id}`); const ok = answerMatches(it, inp.value); fb.className = ok ? 'feedback correct' : 'feedback incorrect'; fb.textContent = `Corect: ${it.correct}`; if (ok) correct++; });
     return { correct, total };
 }
 
@@ -87,7 +104,7 @@ function buildEx3() {
 }
 function checkEx3() {
     let correct = 0; const total = ex3Data.length;
-    ex3Data.forEach(it => { const inp = document.getElementById(`ex3-${it.id}`); const fb = document.getElementById(`ex3-f${it.id}`); const u = normalizeAnswer(inp.value); const ok = it.accept.some(a => normalizeAnswer(a) === u); fb.className = ok ? 'feedback correct' : 'feedback incorrect'; fb.textContent = `Corect: ${it.correct}`; if (ok) correct++; });
+    ex3Data.forEach(it => { const inp = document.getElementById(`ex3-${it.id}`); const fb = document.getElementById(`ex3-f${it.id}`); const ok = answerMatches(it, inp.value); fb.className = ok ? 'feedback correct' : 'feedback incorrect'; fb.textContent = `Corect: ${it.correct}`; if (ok) correct++; });
     return { correct, total };
 }
 
@@ -113,7 +130,7 @@ function buildEx4() {
 }
 function checkEx4() {
     let correct = 0; const total = ex4Data.length;
-    ex4Data.forEach(it => { const inp = document.getElementById(`ex4-${it.id}`); const fb = document.getElementById(`ex4-f${it.id}`); const u = normalizeAnswer(inp.value); const ok = it.accept.some(a => normalizeAnswer(a) === u); fb.className = ok ? 'feedback correct' : 'feedback incorrect'; fb.textContent = `Corect: ${it.correct}`; if (ok) correct++; });
+    ex4Data.forEach(it => { const inp = document.getElementById(`ex4-${it.id}`); const fb = document.getElementById(`ex4-f${it.id}`); const ok = answerMatches(it, inp.value); fb.className = ok ? 'feedback correct' : 'feedback incorrect'; fb.textContent = `Corect: ${it.correct}`; if (ok) correct++; });
     return { correct, total };
 }
 
@@ -139,7 +156,7 @@ function buildEx5() {
 }
 function checkEx5() {
     let correct = 0; const total = ex5Data.length;
-    ex5Data.forEach(it => { const inp = document.getElementById(`ex5-${it.id}`); const fb = document.getElementById(`ex5-f${it.id}`); const u = normalizeAnswer(inp.value); const ok = it.accept.some(a => normalizeAnswer(a) === u); fb.className = ok ? 'feedback correct' : 'feedback incorrect'; fb.textContent = `Corect: ${it.correct}`; if (ok) correct++; });
+    ex5Data.forEach(it => { const inp = document.getElementById(`ex5-${it.id}`); const fb = document.getElementById(`ex5-f${it.id}`); const ok = answerMatches(it, inp.value); fb.className = ok ? 'feedback correct' : 'feedback incorrect'; fb.textContent = `Corect: ${it.correct}`; if (ok) correct++; });
     return { correct, total };
 }
 
@@ -165,7 +182,7 @@ function buildEx6() {
 }
 function checkEx6() {
     let correct = 0; const total = ex6Data.length;
-    ex6Data.forEach(it => { const inp = document.getElementById(`ex6-${it.id}`); const fb = document.getElementById(`ex6-f${it.id}`); const u = normalizeAnswer(inp.value); const ok = it.accept.some(a => normalizeAnswer(a) === u); fb.className = ok ? 'feedback correct' : 'feedback incorrect'; fb.textContent = `Corect: ${it.correct}`; if (ok) correct++; });
+    ex6Data.forEach(it => { const inp = document.getElementById(`ex6-${it.id}`); const fb = document.getElementById(`ex6-f${it.id}`); const ok = answerMatches(it, inp.value); fb.className = ok ? 'feedback correct' : 'feedback incorrect'; fb.textContent = `Corect: ${it.correct}`; if (ok) correct++; });
     return { correct, total };
 }
 
@@ -193,7 +210,7 @@ function buildEx7() {
 }
 function checkEx7() {
     let correct = 0; const total = ex7Data.length;
-    ex7Data.forEach(it => { const inp = document.getElementById(`ex7-${it.id}`); const fb = document.getElementById(`ex7-f${it.id}`); const u = normalizeAnswer(inp.value); const ok = it.accept.some(a => normalizeAnswer(a) === u); fb.className = ok ? 'feedback correct' : 'feedback incorrect'; fb.textContent = `Corect: ${it.correct}`; if (ok) correct++; });
+    ex7Data.forEach(it => { const inp = document.getElementById(`ex7-${it.id}`); const fb = document.getElementById(`ex7-f${it.id}`); const ok = answerMatches(it, inp.value); fb.className = ok ? 'feedback correct' : 'feedback incorrect'; fb.textContent = `Corect: ${it.correct}`; if (ok) correct++; });
     return { correct, total };
 }
 

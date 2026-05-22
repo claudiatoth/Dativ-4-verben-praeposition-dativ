@@ -171,7 +171,17 @@ function checkCurrentQuestion() {
         isCorrect = userAnswer.toLowerCase() === q.correct.toLowerCase();
     } else {
         const norm = normalizeTestAnswer(userAnswer);
+        // 🆕 22 mai 2026 — acceptă atât fragmentul cât și propoziția întreagă
+        // Test 1: fragmentul scurt (ex: "auf den")
         isCorrect = q.accept.some(a => normalizeTestAnswer(a) === norm);
+        // Test 2: propoziția întreagă cu răspunsul inclus (ex: "Andreea denkt an ihre Familie.")
+        if (!isCorrect && q.sentence) {
+            const sentenceClean = q.sentence.replace(/\s*\([^)]*\)\s*/g, ' ');
+            isCorrect = q.accept.some(a => {
+                const full = sentenceClean.replace(/____+/g, a);
+                return normalizeTestAnswer(full) === norm;
+            });
+        }
     }
     userAnswers[currentQuestionIndex] = { answer: userAnswer, correct: isCorrect, checked: true };
     displayFeedback(currentQuestionIndex);
