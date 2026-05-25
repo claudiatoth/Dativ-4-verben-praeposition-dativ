@@ -33,13 +33,13 @@ function answerMatches(item, userInput) {
 // EX 1: mit + Dativ (parteneri / instrumente)
 const ex1Data = [
     { id: 'a', sentence: 'Andreea spricht ____ ihrer Mutter.', translation: 'Andreea vorbește cu mama ei.', correct: 'mit', accept: ['mit'] },
-    { id: 'b', sentence: 'Florian fährt ____ Bus zur Arbeit. (mit + dem Bus)', translation: 'Florian merge cu autobuzul la lucru.', correct: 'mit dem', accept: ['mit dem'] },
+    { id: 'b', sentence: 'Florian fährt ____ Bus zur Arbeit. (der Bus · cu = mit)', translation: 'Florian merge cu autobuzul la lucru.', correct: 'mit dem', accept: ['mit dem'] },
     { id: 'c', sentence: 'Carolina trifft sich ____ ihrem Freund. (reflexiv + mit + Dat)', translation: 'Carolina se întâlnește cu prietenul ei.', correct: 'mit', accept: ['mit'] },
     { id: 'd', sentence: 'Mihai spielt ____ seinen Kindern.', translation: 'Mihai se joacă cu copiii lui.', correct: 'mit', accept: ['mit'] },
     { id: 'e', sentence: 'Acar arbeitet ____ seinen Kollegen.', translation: 'Acar lucrează cu colegii lui.', correct: 'mit', accept: ['mit'] },
     { id: 'f', sentence: 'Annette tanzt ____ dem Direktor.', translation: 'Annette dansează cu directorul.', correct: 'mit', accept: ['mit'] },
     { id: 'g', sentence: 'Andreea telefoniert ____ ihrer Freundin.', translation: 'Andreea vorbește la telefon cu prietena ei.', correct: 'mit', accept: ['mit'] },
-    { id: 'h', sentence: 'Carolina fährt ____ Fahrrad. (mit + dem Fahrrad)', translation: 'Carolina merge cu bicicleta.', correct: 'mit dem', accept: ['mit dem'] },
+    { id: 'h', sentence: 'Carolina fährt ____ Fahrrad. (das Fahrrad · cu = mit)', translation: 'Carolina merge cu bicicleta.', correct: 'mit dem', accept: ['mit dem'] },
     { id: 'i', sentence: 'Florian arbeitet ____ einem Computer.', translation: 'Florian lucrează cu un calculator.', correct: 'mit', accept: ['mit'] },
     { id: 'j', sentence: 'Mihai kocht ____ seiner Frau.', translation: 'Mihai gătește cu soția lui.', correct: 'mit', accept: ['mit'] }
 ];
@@ -58,8 +58,8 @@ function checkEx1() {
 
 // EX 2: bei + Dativ (loc / activitate / persoană)
 const ex2Data = [
-    { id: 'a', sentence: 'Mihai hilft ____ Hausarbeit. (bei + der · NU se contractă)', translation: 'Mihai ajută la treburile casei.', correct: 'bei der', accept: ['bei der'] },
-    { id: 'b', sentence: 'Acar arbeitet ____ Audi. (bei + companie fără articol)', translation: 'Acar lucrează la Audi.', correct: 'bei', accept: ['bei'] },
+    { id: 'a', sentence: 'Mihai hilft ____ Hausarbeit. (die Hausarbeit · la = bei · ATENȚIE: feminin NU se contractă!)', translation: 'Mihai ajută la treburile casei.', correct: 'bei der', accept: ['bei der'] },
+    { id: 'b', sentence: 'Acar arbeitet ____ Audi. (Audi = companie · la = bei · ATENȚIE: companii NU primesc articol!)', translation: 'Acar lucrează la Audi.', correct: 'bei', accept: ['bei'] },
     { id: 'c', sentence: 'Andreea wohnt ____ ihrer Tante.', translation: 'Andreea locuiește la mătușa ei.', correct: 'bei', accept: ['bei'] },
     { id: 'd', sentence: 'Florian ist ____ Arzt. (POZIȚIE — beim = bei+dem)', translation: 'Florian e la doctor.', correct: 'beim', accept: ['beim'] },
     { id: 'e', sentence: 'Carolina bleibt ____ ihrer Entscheidung.', translation: 'Carolina rămâne la decizia ei.', correct: 'bei', accept: ['bei'] },
@@ -67,7 +67,7 @@ const ex2Data = [
     { id: 'g', sentence: 'Mihai arbeitet ____ einem Restaurant.', translation: 'Mihai lucrează la un restaurant.', correct: 'bei', accept: ['bei'] },
     { id: 'h', sentence: 'Andreea hilft ihrer Mutter ____ Kochen.', translation: 'Andreea o ajută pe mama la gătit.', correct: 'beim', accept: ['beim'] },
     { id: 'i', sentence: 'Acar war ____ einer Konferenz.', translation: 'Acar a fost la o conferință.', correct: 'bei', accept: ['bei'] },
-    { id: 'j', sentence: 'Florian arbeitet ____ Charité. (bei + der Charité)', translation: 'Florian lucrează la Charité.', correct: 'bei der', accept: ['bei der'] }
+    { id: 'j', sentence: 'Florian arbeitet ____ Charité. (die Charité · la = bei · ATENȚIE: feminin NU se contractă!)', translation: 'Florian lucrează la Charité.', correct: 'bei der', accept: ['bei der'] }
 ];
 
 function buildEx2() {
@@ -86,14 +86,14 @@ function checkEx2() {
 const ex3Data = [
     { id: 'a', sentence: 'Andreea träumt ____ einer Reise nach Italien.', translation: 'Andreea visează la o călătorie în Italia.', correct: 'von', accept: ['von'] },
     { id: 'b', sentence: 'Mihai bekommt ein Geschenk ____ Annette.', translation: 'Mihai primește un cadou de la Annette.', correct: 'von', accept: ['von'] },
-    { id: 'c', sentence: 'Florian kommt gerade ____ Arbeit. (von + der Arbeit)', translation: 'Florian vine chiar acum de la lucru.', correct: 'von der', accept: ['von der'] },
+    { id: 'c', sentence: 'Florian kommt gerade ____ Arbeit. (die Arbeit · de la = von · ATENȚIE: feminin NU se contractă!)', translation: 'Florian vine chiar acum de la lucru.', correct: 'von der', accept: ['von der'] },
     { id: 'd', sentence: 'Carolina erzählt ____ ihrer Reise.', translation: 'Carolina povestește despre călătoria ei.', correct: 'von', accept: ['von'] },
     { id: 'e', sentence: 'Acar hat ____ Mihai gehört, dass er heiraten will.', translation: 'Acar a auzit de la Mihai că vrea să se căsătorească.', correct: 'von', accept: ['von'] },
     { id: 'f', sentence: 'Annette weiß ____ dem Problem.', translation: 'Annette știe de problemă.', correct: 'von', accept: ['von'] },
     { id: 'g', sentence: 'Andreea träumt ____ ihrer Zukunft.', translation: 'Andreea visează la viitorul ei.', correct: 'von', accept: ['von'] },
     { id: 'h', sentence: 'Carolina bekommt einen Anruf ____ ihrer Kundin.', translation: 'Carolina primește un telefon de la clienta ei.', correct: 'von', accept: ['von'] },
     { id: 'i', sentence: 'Florian erzählt ____ seinem Patienten.', translation: 'Florian povestește despre pacientul lui.', correct: 'von', accept: ['von'] },
-    { id: 'j', sentence: 'Mihai kommt ____ Markt. (von + dem = vom)', translation: 'Mihai vine de la piață.', correct: 'vom', accept: ['vom'] }
+    { id: 'j', sentence: 'Mihai kommt ____ Markt. (der Markt · de la = von)', translation: 'Mihai vine de la piață.', correct: 'vom', accept: ['vom'] }
 ];
 
 function buildEx3() {
@@ -110,16 +110,16 @@ function checkEx3() {
 
 // EX 4: zu + nach + Dativ (eveniment / căutare)
 const ex4Data = [
-    { id: 'a', sentence: 'Mihai gratuliert Andreea ____ Geburtstag. (zu + dem = zum)', translation: 'Mihai o felicită pe Andreea pentru ziua de naștere.', correct: 'zum', accept: ['zum'] },
-    { id: 'b', sentence: 'Annette lädt alle ____ Party ein. (zu + der = zur)', translation: 'Annette îi invită pe toți la petrecere.', correct: 'zur', accept: ['zur'] },
+    { id: 'a', sentence: 'Mihai gratuliert Andreea ____ Geburtstag. (der Geburtstag · pentru = zu)', translation: 'Mihai o felicită pe Andreea pentru ziua de naștere.', correct: 'zum', accept: ['zum'] },
+    { id: 'b', sentence: 'Annette lädt alle ____ Party ein. (die Party · la = zu)', translation: 'Annette îi invită pe toți la petrecere.', correct: 'zur', accept: ['zur'] },
     { id: 'c', sentence: 'Florian gehört ____ unserer Familie. (face parte din)', translation: 'Florian face parte din familia noastră.', correct: 'zu', accept: ['zu'] },
     { id: 'd', sentence: 'Andreea fragt ____ dem Weg. (a întreba de drum)', translation: 'Andreea întreabă de drum.', correct: 'nach', accept: ['nach'] },
     { id: 'e', sentence: 'Mihai sucht ____ seinem Schlüssel.', translation: 'Mihai își caută cheia.', correct: 'nach', accept: ['nach'] },
     { id: 'f', sentence: 'Die Suppe schmeckt ____ Knoblauch. (gust de)', translation: 'Supa are gust de usturoi.', correct: 'nach', accept: ['nach'] },
-    { id: 'g', sentence: 'Carolina gratuliert Florian ____ Hochzeit. (zu + der = zur)', translation: 'Carolina îl felicită pe Florian pentru nuntă.', correct: 'zur', accept: ['zur'] },
+    { id: 'g', sentence: 'Carolina gratuliert Florian ____ Hochzeit. (die Hochzeit · pentru = zu)', translation: 'Carolina îl felicită pe Florian pentru nuntă.', correct: 'zur', accept: ['zur'] },
     { id: 'h', sentence: 'Diese Bluse passt ____ deiner Hose.', translation: 'Bluza se potrivește cu pantalonii tăi.', correct: 'zu', accept: ['zu'] },
     { id: 'i', sentence: 'Das Zimmer riecht ____ Kaffee.', translation: 'Camera miroase a cafea.', correct: 'nach', accept: ['nach'] },
-    { id: 'j', sentence: 'Acar lädt seine Freunde ____ Geburtstag ein. (zu + dem = zum)', translation: 'Acar își invită prietenii la ziua de naștere.', correct: 'zum', accept: ['zum'] }
+    { id: 'j', sentence: 'Acar lädt seine Freunde ____ Geburtstag ein. (der Geburtstag · la = zu)', translation: 'Acar își invită prietenii la ziua de naștere.', correct: 'zum', accept: ['zum'] }
 ];
 
 function buildEx4() {
@@ -136,14 +136,14 @@ function checkEx4() {
 
 // EX 5: 🚨 CONTRAST Akk-prepoziție (warten auf, denken an, sich freuen auf/über)
 const ex5Data = [
-    { id: 'a', sentence: 'Mihai wartet ____ Bus. (auf + Akk · der Bus)', translation: 'Mihai așteaptă autobuzul.', correct: 'auf den', accept: ['auf den'] },
-    { id: 'b', sentence: 'Andreea denkt ____ ihre Familie. (an + Akk plural)', translation: 'Andreea se gândește la familia ei.', correct: 'an ihre', accept: ['an ihre'] },
+    { id: 'a', sentence: 'Mihai wartet ____ Bus. (der Bus · warten AUF + Akk!)', translation: 'Mihai așteaptă autobuzul.', correct: 'auf den', accept: ['auf den'] },
+    { id: 'b', sentence: 'Andreea denkt ____ ihre Familie. (die Familie · denken AN + Akk!)', translation: 'Andreea se gândește la familia ei.', correct: 'an ihre', accept: ['an ihre'] },
     { id: 'c', sentence: 'Carolina freut sich ____ Urlaub. (sich freuen auf + Akk · der Urlaub)', translation: 'Carolina abia așteaptă concediul.', correct: 'auf den', accept: ['auf den'] },
     { id: 'd', sentence: 'Florian freut sich ____ Geschenk. (sich freuen über + Akk · das Geschenk)', translation: 'Florian se bucură de cadou.', correct: 'über das', accept: ['über das', 'ueber das'] },
     { id: 'e', sentence: 'Acar erinnert sich ____ seine Kindheit. (sich erinnern an + Akk)', translation: 'Acar își amintește de copilăria lui.', correct: 'an seine', accept: ['an seine'] },
     { id: 'f', sentence: 'Annette interessiert sich ____ Geschichte. (sich interessieren für + Akk · die Geschichte)', translation: 'Annette se interesează de istorie.', correct: 'für die', accept: ['für die', 'fuer die'] },
-    { id: 'g', sentence: 'Mihai wartet ____ Lieferung. (auf + Akk · die Lieferung)', translation: 'Mihai așteaptă livrarea.', correct: 'auf die', accept: ['auf die'] },
-    { id: 'h', sentence: 'Andreea denkt ____ ihren Bruder. (an + Akk · der Bruder)', translation: 'Andreea se gândește la fratele ei.', correct: 'an ihren', accept: ['an ihren'] },
+    { id: 'g', sentence: 'Mihai wartet ____ Lieferung. (die Lieferung · warten AUF + Akk!)', translation: 'Mihai așteaptă livrarea.', correct: 'auf die', accept: ['auf die'] },
+    { id: 'h', sentence: 'Andreea denkt ____ ihren Bruder. (der Bruder · denken AN + Akk!)', translation: 'Andreea se gândește la fratele ei.', correct: 'an ihren', accept: ['an ihren'] },
     { id: 'i', sentence: 'Florian hofft ____ gute Ergebnisse. (hoffen auf + Akk plural)', translation: 'Florian speră la rezultate bune.', correct: 'auf gute', accept: ['auf gute'] },
     { id: 'j', sentence: 'Carolina erinnert sich ____ den Sommer 2020. (sich erinnern an + Akk · der Sommer)', translation: 'Carolina își amintește de vara lui 2020.', correct: 'an den', accept: ['an den'] }
 ];

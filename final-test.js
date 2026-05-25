@@ -17,12 +17,12 @@ const finalTestData = [
     // 5× mit + Dat
     { type: 'multiple', category: '🤝 mit + Dat', question: 'Andreea spricht ____ ihrer Mutter.', options: ['mit', 'bei', 'von', 'zu'], correct: 'mit', explanation: 'sprechen MIT + Dat = a vorbi cu cineva.' },
     { type: 'luckentext', category: '🤝 mit + Dat', question: 'Completează (sich treffen + Dat):', sentence: 'Carolina trifft sich ____ ihrem Freund.', translation: 'Carolina se întâlnește cu prietenul ei.', accept: ['mit'], correct: 'mit', explanation: 'sich treffen MIT + Dat (reflexiv + mit + Dat).' },
-    { type: 'multiple', category: '🤝 mit + Dat', question: 'Florian fährt ____ Bus. (mit + dem)', options: ['mit', 'bei dem', 'mit dem', 'mit den'], correct: 'mit dem', explanation: 'fahren MIT + Dat masc (der Bus → dem Bus).' },
+    { type: 'multiple', category: '🤝 mit + Dat', question: 'Florian fährt ____ Bus. (der Bus · cu = mit)', options: ['mit', 'bei dem', 'mit dem', 'mit den'], correct: 'mit dem', explanation: 'fahren MIT + Dat masc (der Bus → dem Bus).' },
     { type: 'luckentext', category: '🤝 mit + Dat', question: 'Completează (arbeiten cu cineva):', sentence: 'Acar arbeitet ____ seinen Kollegen.', translation: 'Acar lucrează cu colegii lui.', accept: ['mit'], correct: 'mit', explanation: 'arbeiten MIT + Dat = a lucra cu cineva.' },
     { type: 'multiple', category: '🤝 mit + Dat', question: 'sprechen — care e CORECT pentru „cu cineva"?', options: ['sprechen zu', 'sprechen von', 'sprechen mit', 'sprechen über'], correct: 'sprechen mit', explanation: 'sprechen MIT + Dat = cu cineva. sprechen über/von = despre ceva.' },
 
     // 4× bei + Dat
-    { type: 'multiple', category: '🏢 bei + Dat', question: 'Mihai hilft ____ Hausarbeit. (bei + der)', options: ['bei dem', 'bei der', 'beim', 'mit der'], correct: 'bei der', explanation: 'helfen BEI + die Hausarbeit → bei DER Hausarbeit. NU se contractă (fem).' },
+    { type: 'multiple', category: '🏢 bei + Dat', question: 'Mihai hilft ____ Hausarbeit. (die Hausarbeit · la = bei · NU se contractă!)', options: ['bei dem', 'bei der', 'beim', 'mit der'], correct: 'bei der', explanation: 'helfen BEI + die Hausarbeit → bei DER Hausarbeit. NU se contractă (fem).' },
     { type: 'luckentext', category: '🏢 bei + Dat', question: 'Completează (arbeiten + companie):', sentence: 'Acar arbeitet ____ Audi.', translation: 'Acar lucrează la Audi.', accept: ['bei'], correct: 'bei', explanation: 'arbeiten BEI + companie (fără articol).' },
     { type: 'multiple', category: '🏢 bei + Dat', question: 'helfen — care construcție e CORECTĂ pentru „o ajut la gătit"?', options: ['Ich helfe ihr beim Kochen.', 'Ich helfe sie beim Kochen.', 'Ich helfe ihr mit Kochen.', 'Ich helfe ihr zu Kochen.'], correct: 'Ich helfe ihr beim Kochen.', explanation: 'helfen + Dat direct (ihr) + bei + Dat activitate (beim Kochen). Persoana e DAT, NU Akk!' },
     { type: 'luckentext', category: '🏢 bei + Dat', question: 'Completează (wohnen la cineva):', sentence: 'Andreea wohnt ____ ihrer Tante.', translation: 'Andreea locuiește la mătușa ei.', accept: ['bei'], correct: 'bei', explanation: 'wohnen BEI + Dat = la cineva.' },
@@ -30,13 +30,13 @@ const finalTestData = [
     // 4× von + Dat
     { type: 'multiple', category: '📨 von + Dat', question: 'Andreea träumt ____ einer Reise.', options: ['mit', 'von', 'zu', 'auf'], correct: 'von', explanation: 'träumen VON + Dat = a visa la ceva.' },
     { type: 'luckentext', category: '📨 von + Dat', question: 'Completează (a primi de la):', sentence: 'Mihai bekommt ein Geschenk ____ Annette.', translation: 'Mihai primește un cadou de la Annette.', accept: ['von'], correct: 'von', explanation: 'bekommen VON + Dat = a primi de la cineva.' },
-    { type: 'multiple', category: '📨 von + Dat', question: 'Florian kommt ____ Arbeit. (von + der)', options: ['vom', 'von der', 'von dem', 'beim'], correct: 'von der', explanation: 'kommen VON + die Arbeit → von DER Arbeit. NU se contractă (fem).' },
+    { type: 'multiple', category: '📨 von + Dat', question: 'Florian kommt ____ Arbeit. (die Arbeit · de la = von · NU se contractă!)', options: ['vom', 'von der', 'von dem', 'beim'], correct: 'von der', explanation: 'kommen VON + die Arbeit → von DER Arbeit. NU se contractă (fem).' },
     { type: 'luckentext', category: '📨 von + Dat', question: 'Completează (a auzi de la):', sentence: 'Acar hat ____ Mihai gehört.', translation: 'Acar a auzit de la Mihai.', accept: ['von'], correct: 'von', explanation: 'hören VON + nume propriu (fără articol).' },
 
     // 3× zu/nach + Dat
-    { type: 'multiple', category: '🎯 zu/nach + Dat', question: 'Annette lädt alle ____ Party ein. (zu + der)', options: ['zum', 'zur', 'zu der', 'bei der'], correct: 'zur', explanation: 'einladen ZU + die Party → ZUR Party (contracție zu+der = zur).' },
+    { type: 'multiple', category: '🎯 zu/nach + Dat', question: 'Annette lädt alle ____ Party ein. (die Party · la = zu)', options: ['zum', 'zur', 'zu der', 'bei der'], correct: 'zur', explanation: 'einladen ZU + die Party → ZUR Party (contracție zu+der = zur).' },
     { type: 'luckentext', category: '🎯 zu/nach + Dat', question: 'Completează (a întreba de):', sentence: 'Andreea fragt ____ dem Weg.', translation: 'Andreea întreabă de drum.', accept: ['nach'], correct: 'nach', explanation: 'fragen NACH + Dat = a întreba de.' },
-    { type: 'multiple', category: '🎯 zu/nach + Dat', question: 'Mihai gratuliert Andreea ____ Geburtstag. (zu + dem)', options: ['zur', 'zum', 'zu', 'beim'], correct: 'zum', explanation: 'gratulieren + Dat persoană (Andreea) + ZU + Dat eveniment. zu+dem = ZUM.' },
+    { type: 'multiple', category: '🎯 zu/nach + Dat', question: 'Mihai gratuliert Andreea ____ Geburtstag. (der Geburtstag · pentru = zu)', options: ['zur', 'zum', 'zu', 'beim'], correct: 'zum', explanation: 'gratulieren + Dat persoană (Andreea) + ZU + Dat eveniment. zu+dem = ZUM.' },
 
     // 5× Akk-prepoziție (CONTRAST!)
     { type: 'multiple', category: '🚨 Akk-prep CONTRAST', question: 'warten — care e CORECT?', options: ['warten auf den Bus', 'warten auf dem Bus', 'warten mit dem Bus', 'warten zu dem Bus'], correct: 'warten auf den Bus', explanation: 'warten AUF + AKKUSATIV! NU Dativ. der Bus → AUF DEN Bus.' },
